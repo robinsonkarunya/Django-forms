@@ -18,9 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from formCreation.views import hello_geeks
 from formCreation.views import home_view
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('geek/',hello_geeks),
-    path('homeview/',home_view)
+    path('homeview/',home_view),
+    path('admin/', admin.site.urls),  # Admin panel URL
+    path('', include("geeks.urls")),
 ]
